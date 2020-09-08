@@ -1,0 +1,30 @@
+
+- name: Create Namespace
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '10-namespace.yaml.j2') }}"
+
+- name: Create OperatorGroup
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '20-operator-group.yaml.j2') }}"
+
+- name: Create Operator Subscription
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '30-subscription.yaml.j2') }}"
+
+- name: Create Operator Instance for ArgoCD
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '40-argocd.yaml.j2') }}"
+
+- name: Create ClusterRoleBinding
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '50-clusterrolebinding.yaml.j2') }}"
+
+- name: Create Group for Authentication
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '60-group-argocdadmins.yaml.j2') }}"

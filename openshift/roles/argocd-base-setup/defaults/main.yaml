@@ -1,0 +1,5 @@
+---
+# defaults file
+
+argocd_namespace: "argocd"
+argocd_auth_group: "argocdadmins"
