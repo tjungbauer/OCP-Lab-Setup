@@ -9,6 +9,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: cluster-bootstrap/sealed-secrets
+    path: openshift/openshift-logging/
     repoURL: https://github.com/tjungbauer/OCP-Lab-Setup
     targetRevision: master
