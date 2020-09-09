@@ -22,6 +22,7 @@ spec:
 
       # Projects
       # BGD
+      p, role:dummy, clusters, get, *, allow
       p, role:proj-bgd, applications, create, bgd/*, allow
       p, role:proj-bgd, applications, delete, bgd/*, allow
       p, role:proj-bgd, applications, get, bgd/*, allow
