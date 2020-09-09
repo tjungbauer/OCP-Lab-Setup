@@ -10,3 +10,21 @@ metadata:
   name: bgd-admin
 users:
   - local
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCD
+metadata:
+  name: main-argocd
+  namespace: argocd
+spec:
+  rbac:
+    policy: |
+
+      p, role:proj-bgd, applications, create, bgd/*, allow
+      p, role:proj-bgd, applications, delete, bgd/*, allow
+      p, role:proj-bgd, applications, get, bgd/*, allow
+      p, role:proj-bgd, applications, override, bgd/*, allow
+      p, role:proj-bgd, applications, sync, bgd/*, allow
+      p, role:proj-bgd, applications, update, bgd/*, allow
+      p, role:proj-bgd, projects, get, bgd, allow
+      g, bgd-admins, role:proj-bgd

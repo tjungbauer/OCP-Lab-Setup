@@ -21,3 +21,6 @@ ansible-playbook roles/cluster_bootstrap/apply/openshift-logging.yaml
 
 # Rollout everything with ArgoCD
 ansible-playbook roles/cluster_bootstrap/apply/main.yaml
+
+# Rollout new project
+ansible-playbook roles/cluster_bootstrap/apply/onboard-projects.yaml

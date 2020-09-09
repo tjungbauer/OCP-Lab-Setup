@@ -13,7 +13,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: Blue-Green-Box
+  name: proj-blue-green-box
   namespace: argocd
 spec:
   destination:
@@ -21,8 +21,8 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: bgd
-    repoURL: 'https://github.com/tjungbauer/gitops-examples/'
+    path: openshift/project-onboarding
+    repoURL: 'https://github.com/tjungbauer/OCP-Lab-Setup/'
     targetRevision: master
   syncPolicy:
     automated:
