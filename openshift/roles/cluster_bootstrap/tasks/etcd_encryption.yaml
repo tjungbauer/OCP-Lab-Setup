@@ -1,5 +1,5 @@
 
-- name: Create Logging
+- name: Create ETCD Encryption
   k8s:
     state: present
     definition: "{{ lookup('template', '20-etcd-encryption.yaml.j2') }}"

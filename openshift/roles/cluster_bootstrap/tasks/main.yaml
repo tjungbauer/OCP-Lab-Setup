@@ -9,3 +9,8 @@
     state: present
     definition: "{{ lookup('template', '20-etcd-encryption.yaml.j2') }}"
 
+- name: Enable Image Pruner
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '30-imagepruner.yaml.j2') }}"
+

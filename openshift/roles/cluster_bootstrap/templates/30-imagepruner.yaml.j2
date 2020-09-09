@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: enable-image-pruner
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: openshift/enable_imagepruner/
+    repoURL: https://github.com/tjungbauer/OCP-Lab-Setup
+    targetRevision: master

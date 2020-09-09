@@ -1,0 +1,6 @@
+
+- name: Enable Image Pruner
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '30-imagepruner.yaml.j2') }}"
+
