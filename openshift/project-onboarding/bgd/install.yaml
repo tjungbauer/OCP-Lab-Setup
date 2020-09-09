@@ -7,6 +7,6 @@ metadata:
 kind: Group
 apiVersion: user.openshift.io/v1
 metadata:
-  name: bgd-admin
+  name: bgd-admins
 users:
   - local
