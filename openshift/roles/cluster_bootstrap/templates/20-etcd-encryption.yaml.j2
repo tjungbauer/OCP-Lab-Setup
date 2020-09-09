@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: deploy-etcd-enryption
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: openshift/etcd_encryption/
+    repoURL: https://github.com/tjungbauer/OCP-Lab-Setup
+    targetRevision: master
