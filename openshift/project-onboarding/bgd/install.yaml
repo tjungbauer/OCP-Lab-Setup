@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: bgd
+---
+kind: Group
+apiVersion: user.openshift.io/v1
+metadata:
+  name: bgd-admin
+users:
+  - local
