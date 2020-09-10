@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCD
+metadata:
+  name: main-argocd
+  namespace: argocd
+spec:
+  rbac:
+    defaultPolicy: 'role:dummy'
+    policy: |
+      g, argocdadmins, role:admin
+
+      p, role:dummy, applications, get, */*, deny
+      p, role:dummy, certificates, get, *, deny
+      p, role:dummy, clusters, get, *, deny
+      p, role:dummy, repositories, get, *, deny
+      p, role:dummy, projects, get, *, deny
+      p, role:dummy, accounts, get, *, deny
+      p, role:dummy, gpgkeys, get, *, deny
+
+      # Customer Projects
+      {% for proj in add_projects %} 
+      # Project {{ proj.short }} - {{ proj.name }}
+      p, role:proj-{{ proj.short }}, applications, create, {{ proj.short }}/*, allow
+      p, role:proj-{{ proj.short }}, applications, delete, {{ proj.short }}/*, allow
+      p, role:proj-{{ proj.short }}, applications, get, {{ proj.short }}/*, allow
+      p, role:proj-{{ proj.short }}, applications, override, {{ proj.short }}/*, allow
+      p, role:proj-{{ proj.short }}, applications, sync, {{ proj.short }}/*, allow
+      p, role:proj-{{ proj.short }}, applications, update, {{ proj.short }}/*, allow
+      p, role:proj-{{ proj.short }}, projects, get, {{ proj.short }}, allow
+      g, {{ proj.short }}-admins, role:proj-{{ proj.short }}
+      # END {{ proj.short }} - {{ proj.name }}
+
+      {% endfor %}
