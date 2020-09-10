@@ -9,3 +9,21 @@
     state: absent
     definition: "{{ lookup('template', '101-remove-projects.yaml.j2') }}"
 
+- name: ArgoCD RBAC must be configured manually
+  vars:
+    msg: |
+         # RBAC for {{ item }}
+         p, role:proj-{{ item }}, applications, create, {{ item }}/*, allow
+         p, role:proj-{{ item }}, applications, delete, {{ item }}/*, allow
+         p, role:proj-{{ item }}, applications, get, {{ item }}/*, allow
+         p, role:proj-{{ item }}, applications, override, {{ item }}/*, allow
+         p, role:proj-{{ item }}, applications, sync, {{ item }}/*, allow
+         p, role:proj-{{ item }}, applications, update, {{ item }}/*, allow
+         p, role:proj-{{ item }}, projects, get, {{ item }}, allow
+         g, {{ item }}-admins, role:proj-{{ item }}
+         # End RBAC for {{ item  }}
+  loop: 
+    - "{{ add_projects[0].name }}"
+
+  debug:
+    msg: "{{ msg.split('\n') }}"

@@ -3,6 +3,4 @@ add_projects:
   - name: proj-blue-green-box
     short: bgd
 
-remove_projects:
-  - name: test
-    short: test
+remove_projects: []
