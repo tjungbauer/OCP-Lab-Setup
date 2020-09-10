@@ -1,11 +1,13 @@
+{% for proj in add_projects %}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: bgd
+  name: {{ proj.short }}
   namespace: argocd
 spec:
   destinations:
-    - namespace: bgd
+    - namespace: {{ proj.short }}
       server: '*'
   sourceRepos:
     - '*'
@@ -13,18 +15,19 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: proj-blue-green-box
+  name: {{ proj.name }}
   namespace: argocd
 spec:
   destination:
-    namespace: bgd
+    namespace: argocd
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: openshift/project-onboarding
+    path: openshift/project-onboarding/{{ proj.short }}
     repoURL: 'https://github.com/tjungbauer/OCP-Lab-Setup/'
     targetRevision: master
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+{% endfor %}

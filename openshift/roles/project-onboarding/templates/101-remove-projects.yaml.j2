@@ -1,0 +1,33 @@
+{% for proj in remove_projects %}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ proj.short }}
+  namespace: argocd
+spec:
+  destinations:
+    - namespace: {{ proj.short }}
+      server: '*'
+  sourceRepos:
+    - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ proj.name }}
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: openshift/project-onboarding
+    repoURL: 'https://github.com/tjungbauer/OCP-Lab-Setup/'
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+{% endfor %}

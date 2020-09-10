@@ -1,0 +1,11 @@
+
+- name: Onboard list of projects
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '100-onboard-projects.yaml.j2') }}"
+
+- name: REMOVE list of projects
+  k8s:
+    state: absent
+    definition: "{{ lookup('template', '101-remove-projects.yaml.j2') }}"
+

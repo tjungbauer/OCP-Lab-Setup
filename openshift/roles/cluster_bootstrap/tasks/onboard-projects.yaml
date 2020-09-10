@@ -1,6 +1,0 @@
-
-- name: Onboard Projects
-  k8s:
-    state: present
-    definition: "{{ lookup('template', '100-onboard-projects.yaml.j2') }}"
-
