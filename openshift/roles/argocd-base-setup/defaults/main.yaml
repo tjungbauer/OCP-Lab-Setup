@@ -3,3 +3,5 @@
 
 argocd_namespace: "argocd"
 argocd_auth_group: "argocdadmins"
+argocd_admin_users:
+  - admin

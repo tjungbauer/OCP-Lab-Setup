@@ -3,4 +3,6 @@ apiVersion: user.openshift.io/v1
 metadata:
   name: {{ argocd_auth_group }}
 users:
-  - admin
+{% for user in argocd_admin_users %}
+- {{ user }}
+{% endfor %}
