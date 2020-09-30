@@ -13,5 +13,5 @@ operatorgroup_logging:
 operatorgroup_ops:
   name: openshift-operators-redhat
 
-operatorgroup_grafana-boards:
+operatorgroup_grafana_boards:
   name: grafana-dashboards
