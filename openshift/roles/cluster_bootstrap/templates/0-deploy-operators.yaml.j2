@@ -12,3 +12,7 @@ spec:
     path: openshift/deploy_operators/
     repoURL: https://github.com/tjungbauer/OCP-Lab-Setup
     targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false

@@ -5,9 +5,13 @@
 namespace:
   logging: openshift-logging
   ocpoperator: openshift-operators-redhat
+  grafana-boards: grafana-dashboards
 
 operatorgroup_logging:
   name: cluster-logging
 
 operatorgroup_ops:
   name: openshift-operators-redhat
+
+operatorgroup_grafana-boards:
+  name: grafana-dashboards

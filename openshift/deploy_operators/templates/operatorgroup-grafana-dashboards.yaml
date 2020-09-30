@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: {{ .Values.operatorgroup_grafana-boards.name  }}
+  namespace: {{ .Values.namespace.grafana-boards  }}
+spec:
+  targetNamespaces:
+  - {{ .Values.namespace.grafana-boards }}
