@@ -1,0 +1,6 @@
+
+- name: Create Hashicorp Vault
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '50-deploy-hashicorp.yaml.j2') }}"
+
