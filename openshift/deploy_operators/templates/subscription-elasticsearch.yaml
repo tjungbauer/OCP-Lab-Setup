@@ -4,7 +4,7 @@ metadata:
   name: "elasticsearch-operator"
   namespace: {{ .Values.namespace.ocpoperator }}
 spec:
-  channel: "4.5"
+  channel: "4.6"
   installPlanApproval: "Automatic"
   source: "redhat-operators"
   sourceNamespace: "openshift-marketplace"
