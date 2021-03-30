@@ -12,3 +12,7 @@ spec:
     path: openshift/cluster_config/etcd_encryption/
     repoURL: https://github.com/tjungbauer/OCP-Lab-Setup
     targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
