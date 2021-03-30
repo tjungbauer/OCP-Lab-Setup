@@ -14,9 +14,9 @@
     state: present
     definition: "{{ lookup('template', '30-subscription.yaml.j2') }}"
 
-- name: Pause for 10 seconds to install operator
+- name: Pause for 20 seconds to install operator
   pause:
-    seconds: 10
+    seconds: 20
 
 - name: Create Operator Instance for ArgoCD
   retries: 5

@@ -1,0 +1,4 @@
+---
+# defaults file
+
+gitops_namespace: "openshift-operators"

@@ -1,6 +1,0 @@
-
-- name: Deploy Operators
-  k8s:
-    state: present
-    definition: "{{ lookup('template', '0-deploy-operators.yaml.j2') }}"
-

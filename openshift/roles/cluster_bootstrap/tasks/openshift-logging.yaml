@@ -1,6 +1,0 @@
-
-- name: Create Logging
-  k8s:
-    state: present
-    definition: "{{ lookup('template', '10-openshift-logging.yaml.j2') }}"
-
