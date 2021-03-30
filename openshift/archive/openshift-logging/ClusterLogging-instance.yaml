@@ -43,5 +43,3 @@ spec:
       type: "fluentd"
       fluentd:
         resources:
-        limits:
-          memory: 1Gi
